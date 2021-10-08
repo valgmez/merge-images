@@ -22,11 +22,12 @@ def main():
     images = glob.glob("*.jpg")
     logo = Image.open("" + str(sys.argv[1]) + "")
     path = "/".join(sys.argv[1].split("/")[:-1])
+    brand = sys.argv[1].split("/")[-2]
     count = 0
     for image in images:
         image = Image.open(image)
         count += 1
-        merge(logo, image).save(f"{path}/merge_{count}.jpg")
+        merge(logo, image).save(f"{path}/{brand}_{count}.jpg")
 
 
 if __name__ == '__main__':
